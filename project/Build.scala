@@ -10,13 +10,12 @@ object Build extends Build {
     version := "1.0",
     scalaVersion := "2.11.4",
     libraryDependencies += "org.scalatest" %% "scalatest" % "2.1.6" % "test",
-    libraryDependencies += "com.typesafe.play" %% "twirl-api" % "1.0.3",
-    sourceDirectories in TwirlKeys.compileTemplates := (unmanagedSourceDirectories in Compile).value
+    sourceDirectories in (Compile, TwirlKeys.compileTemplates) := (unmanagedSourceDirectories in Compile).value
   )
 
   lazy val project = Project("twirl-bug", file("."))
     .enablePlugins(SbtTwirl)
-    .settings(settings:_*)
+    .settings(our_settings:_*)
 
   override def rootProject = Some(project)
 }
