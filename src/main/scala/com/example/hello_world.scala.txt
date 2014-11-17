@@ -1,0 +1,2 @@
+@(args: Array[String])
+Hello, world. There are @{args.length} arguments. 
